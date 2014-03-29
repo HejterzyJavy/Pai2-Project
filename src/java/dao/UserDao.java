@@ -178,5 +178,36 @@ public class UserDao {
         return user;
 
     }
+    
+    
+   public boolean zaloguj(String login,String haslo) {
+
+        List<User> users = new ArrayList<User>();
+        boolean czyZalogowany=false;
+        try {
+
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("select * from users");
+
+            while (rs.next()) {
+             
+             if (rs.getString("login").equals(login) && rs.getString("haslo").equals(haslo))
+             {
+                 czyZalogowany=true;
+                 break;
+             }
+            
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return czyZalogowany;
+
+    }
 
 }
