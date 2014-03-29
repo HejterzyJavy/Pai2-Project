@@ -9,7 +9,7 @@
 *:focus {outline: none;}
 
 body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;}
-.contact_form h2, .contact_form label {font-family:Georgia, Times, "Times New Roman", serif;}
+.formularzRejestracji h2, .formularzRejestracji label {font-family:Georgia, Times, "Times New Roman", serif;}
 .form_hint, .required_notification {font-size: 11px;}
 
 .formularzRejestracji ul {
@@ -25,11 +25,64 @@ body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", san
     position:relative;
 }
 
-.formularzRejestracji li:first-child, .contact_form li:last-child {
+.formularzRejestracji li:first-child, .formularzRejestracji li:last-child {
     border-bottom:1px solid #777;
 }
 
-.contact_form h2 {
+.formularzRejestracji h2 {
     margin:0;
     display: inline;
+}
+
+.formularzRejestracji label {
+    width:110px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.formularzRejestracji input {
+    width:220px;
+    padding:5px 8px;
+}
+.formularzRejestracji textarea {padding:8px; width:300px;}
+.formularzRejestracji button {margin-left:156px;}
+
+
+.formularzRejestracji input, .formularzRejestracji textarea {
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.formularzRejestracji input:focus, .formularzRejestracji textarea:focus {
+    background: #fff;
+    border:1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+}
+
+.formularzRejestracji input:focus, .formularzRejestracji textarea:focus { 
+    padding-right:70px;
+}
+
+.formularzRejestracji input, .formularzRejestracji textarea { 
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.formularzRejestracji input, .formularzRejestracji textarea {
+    padding-right:30px;
+}
+
+.formularzRejestracji input:focus:invalid, .formularzRejestracji textarea:focus:invalid { 
+    background: #fff url(../../img/wykrzyknik.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+.formularzRejestracji input:required:valid, .formularzRejestracji textarea:required:valid { 
+    background: #fff url(../../img/validyes.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
 }
