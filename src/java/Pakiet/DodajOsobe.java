@@ -14,7 +14,7 @@ public class DodajOsobe {
     
 public String sprawdzDane( Osoba osoba )
 {
-String rejestracja;
+String  rejestracja;
 
 if( osoba.login.equals( "Adrian" ) )
 {

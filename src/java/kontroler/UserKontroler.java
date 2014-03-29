@@ -91,7 +91,16 @@ public class UserKontroler extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = new User();
-
+        
+        
+       // String action = request.getParameter("action");
+       // String rejestruj=request.getParameter("submit");
+       // String zaloguj=request.getParameter("zaloguj");
+        
+        
+        
+      //  if (rejestruj!=null) {
+        
         user.setLogin(request.getParameter("login"));
         user.setHaslo(request.getParameter("haslo"));
         user.setAdres(request.getParameter("adres"));
@@ -100,7 +109,10 @@ public class UserKontroler extends HttpServlet {
         user.setImie(request.getParameter("imie"));
         user.setNazwisko(request.getParameter("nazwisko"));
         user.setPesel(request.getParameter("pesel"));
-
+        
+        if(user.getAdres()!=null)
+        {
+            System.out.println("\n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
         try {
 
             Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("dob"));
@@ -120,7 +132,21 @@ public class UserKontroler extends HttpServlet {
             user.setUserid(Integer.parseInt(userid));
             dao.updateUser(user);
         }
-
+        }
+        //}
+        else if (user.getAdres()==null) {
+            
+            System.out.println("logowanie");
+         if(dao.zaloguj(user.getLogin(),user.getHaslo()))
+         {
+             System.out.println("zalogowany");
+         }
+         else
+             System.out.println("niezalogowany");
+         
+        }
+        
+        
         RequestDispatcher view = request.getRequestDispatcher(INDEX);
        // request.setAttribute("users", dao.getAllUsers());
         view.forward(request, response);
