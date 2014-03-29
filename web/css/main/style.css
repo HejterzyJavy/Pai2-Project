@@ -86,3 +86,26 @@ body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", san
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
+
+.form_hint {
+    background: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    margin-left:8px;
+    padding: 1px 6px;
+    z-index: 999; 
+    position: absolute; 
+    display: none;
+}
+
+.form_hint::before {
+    content: "\25C0"; 
+    color:#d45252;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+
+.formularzRejestracji input:focus + .form_hint {display: inline;}
+.formularzRejestracji input:required:valid + .form_hint {background: #28921f;} 
+.formularzRejestracji input:required:valid + .form_hint::before {color:#28921f;} 

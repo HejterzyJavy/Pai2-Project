@@ -43,69 +43,65 @@
                     <input  
                         type="text" name="login" placeholder="Pole wymagane" 
                         value="<c:out value="${user.login}" />" required />  
-                     <span class="form_hint">Zla dana</span>
+                    <span class="form_hint">Min 3 znaki<br> Bez znaków specjalnych</span>
                 </li>
                 <li>
                     <label for="haslo">Haslo :</label>
                     <input  
                         type="password" name="haslo"  placeholder="Pole wymagane" 
                         value="<c:out value="${user.haslo}" />" required /> 
-                    <span class="form_hint">Zla dana</span>
+                    <span class="form_hint">Min 6 znaków<br> Dozwolone: litery,cyfry,znaki specjalne</span>
                 </li>
                 <li>
                     <label for="adres">Adres :</label>
                     <input  
                         type="text" name="adres"  placeholder="Pole wymagane" 
                         value="<c:out value="${user.adres}" />" required />
-                    <span class="form_hint">Zla dana</span>
+                    <span class="form_hint">np. Warszawa ul. Kielecka 4</span>
                 </li>
                 <li>
                     <label for="kodPocztowy">Kod Pocztowy :</label>
                     <input  
                         type="text" name="kodPocztowy"  placeholder="Pole wymagane" 
                         value="<c:out value="${user.kodPocztowy}" />" required />
-                    <span class="form_hint">Zla dana</span>
+                    <span class="form_hint">XX-XXX</span>
                 </li>
                 <li>
                     <label for="telefon">Telefon :</label>
                     <input  
                         type="text" name="telefon"  placeholder="Pole wymagane" 
                         value="<c:out value="${user.telefon}" />" required />   
-                    <span class="form_hint">Zla dana</span>
+                    <span class="form_hint">Komórkowy lub stacjonarny</span>
                 </li>
                 <li>
                     <label for="imie">Imie :</label>
                     <input  
                         type="text" name="imie"  placeholder="Pole wymagane" 
                         value="<c:out value="${user.imie}" />" required />  
-                    <span class="form_hint">Zla dana</span>
                 </li>
                 <li>
                     <label for="nazwisko">Nazwisko :</label>
                     <input  
                         type="text" name="nazwisko"  placeholder="Pole wymagane" 
-                        value="<c:out value="${user.nazwisko}" />" required /> 
-                    <span class="form_hint">Zla dana</span>
+                        value="<c:out value="${user.nazwisko}" />" required />                 
                 </li>
                 <li>
                     <label for="pesel">Pesel :</label>
                     <input  
                         type="text" name="pesel"   placeholder="Pole wymagane" 
-                        value="<c:out value="${user.pesel}" />" required /> 
-                    <span class="form_hint">Zla dana</span>
+                        value="<c:out value="${user.pesel}" />" required />                     
                 </li>
                 <li>
                     <label for="dob">Data urodzenia :</label>
                     <input  
                         type="text" name="dob"  placeholder="Pole wymagane" 
                         value="<fmt:formatDate pattern="MM/dd/yyyy" value="${user.dob}"  />" required />
-                    <span class="form_hint">Zla dana</span>
-                </li>
+               </li>
                 <li>
                     <label for="email"> Email :</label>
                    <input type="email" name="email"  placeholder="Pole wymagane" 
                           value="<c:out value="${user.email}" />" required="" />  
-                   <span class="form_hint">Zla dana</span>
+                   <span class="form_hint">np. jan@poczta.pl</span>
                 </li>
                 <li>
                     <input type="submit" value="Submit" />  
