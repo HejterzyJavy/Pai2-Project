@@ -9,6 +9,8 @@
     
     <body>
 <h1 align="center">LOGOWANIE</h1>
+
+
 <form class="formularzRejestracji" method="POST" action="UserKontroler">
    
   
