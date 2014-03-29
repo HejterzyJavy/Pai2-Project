@@ -16,7 +16,7 @@ public String sprawdzDane( Osoba osoba )
 {
 String  rejestracja;
 
-if( osoba.login.equals( "Adrian" ) )
+if( osoba.login.equals( "Adr ian" ) )
 {
 rejestracja="zle";
 }
