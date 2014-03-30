@@ -32,6 +32,10 @@ public class UserKontroler extends HttpServlet {
     
     private static String INDEX = "/index.html";
 
+    private static String Loguj="/Log.jsp";
+    
+    private static String MenuKlient="/MenuKlient.jsp";
+    
     private UserDao dao;
 
     public UserKontroler() {
@@ -91,7 +95,7 @@ public class UserKontroler extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = new User();
-        
+         RequestDispatcher view=request.getRequestDispatcher(INDEX);
         
        // String action = request.getParameter("action");
        // String rejestruj=request.getParameter("submit");
@@ -128,6 +132,7 @@ public class UserKontroler extends HttpServlet {
 
         if (userid == null || userid.isEmpty()) {
             dao.addUser(user);
+            view = request.getRequestDispatcher(Loguj);
         } else {
             user.setUserid(Integer.parseInt(userid));
             dao.updateUser(user);
@@ -139,15 +144,15 @@ public class UserKontroler extends HttpServlet {
             System.out.println("logowanie");
          if(dao.zaloguj(user.getLogin(),user.getHaslo()))
          {
-             System.out.println("zalogowany");
+             view = request.getRequestDispatcher(MenuKlient);
          }
          else
-             System.out.println("niezalogowany");
+              view = request.getRequestDispatcher(Loguj);
          
         }
         
         
-        RequestDispatcher view = request.getRequestDispatcher(INDEX);
+        
        // request.setAttribute("users", dao.getAllUsers());
         view.forward(request, response);
 

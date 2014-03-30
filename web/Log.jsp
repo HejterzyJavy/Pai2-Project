@@ -10,7 +10,7 @@
     <body>
 <h1 align="center">LOGOWANIE</h1>
 
-
+<div align="center">
 <form class="formularzRejestracji" method="POST" action="UserKontroler">
    
   
@@ -30,4 +30,5 @@
     <input type="SUBMIT" value="ZALOGUJ">
 
 </form>
+</div>
 </body></html>
