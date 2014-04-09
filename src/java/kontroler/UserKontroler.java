@@ -31,13 +31,14 @@ public class UserKontroler extends HttpServlet {
     private static String LIST_USER = "/listUser.jsp";
     
     private static String INDEX = "/index.html";
+    
+    private static String ZALOGOWANY = "/Zalogowany.jsp";
 
-    private static String Loguj="/Log.jsp";
-    
-    private static String MenuKlient="/MenuKlient.jsp";
-    
     private UserDao dao;
 
+    private boolean czyZalogowany=false;
+    
+    
     public UserKontroler() {
 
         super();
@@ -93,18 +94,32 @@ public class UserKontroler extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         User user = new User();
-         RequestDispatcher view=request.getRequestDispatcher(INDEX);
+        RequestDispatcher view=request.getRequestDispatcher(INDEX);
+
+        String SprawdzOferte=request.getParameter("Oferta");
+        if(SprawdzOferte!=null && czyZalogowany)
+        {
+            System.out.print("wcisnieta oferta");
+            SprawdzOferte=null;
+        }
+        String Promocje=request.getParameter("Promocje");
+        if(Promocje!=null && czyZalogowany)
+        {
+            System.out.print("wcisnieta Promocje");
+            Promocje=null;
+        }
+        String Sprzedaz=request.getParameter("Sprzedaz");
+          if(Sprzedaz!=null && czyZalogowany)
+        {
+            System.out.print("wcisnieto Sprzedaz");
+            Sprzedaz=null;
+        }
         
-       // String action = request.getParameter("action");
-       // String rejestruj=request.getParameter("submit");
-       // String zaloguj=request.getParameter("zaloguj");
-        
-        
-        
-      //  if (rejestruj!=null) {
-        
+        String Rejestruj=request.getParameter("Rejestruj");
+        if(Rejestruj!=null)
+        {
         user.setLogin(request.getParameter("login"));
         user.setHaslo(request.getParameter("haslo"));
         user.setAdres(request.getParameter("adres"));
@@ -113,9 +128,8 @@ public class UserKontroler extends HttpServlet {
         user.setImie(request.getParameter("imie"));
         user.setNazwisko(request.getParameter("nazwisko"));
         user.setPesel(request.getParameter("pesel"));
-        
-        if(user.getAdres()!=null)
-        {
+            
+            
             System.out.println("\n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
         try {
 
@@ -132,27 +146,36 @@ public class UserKontroler extends HttpServlet {
 
         if (userid == null || userid.isEmpty()) {
             dao.addUser(user);
-            view = request.getRequestDispatcher(Loguj);
         } else {
             user.setUserid(Integer.parseInt(userid));
             dao.updateUser(user);
         }
+        view = request.getRequestDispatcher(INDEX);
         }
         //}
-        else if (user.getAdres()==null) {
+        
+        
+        String Zaloguj=request.getParameter("Logowanie");
+        if (Zaloguj!=null) {
+        user.setLogin(request.getParameter("login"));
+        user.setHaslo(request.getParameter("haslo"));
             
             System.out.println("logowanie");
          if(dao.zaloguj(user.getLogin(),user.getHaslo()))
          {
-             view = request.getRequestDispatcher(MenuKlient);
+             czyZalogowany=true;
+             System.out.println("zalogowany");
+             view = request.getRequestDispatcher(ZALOGOWANY);
          }
-         else
-              view = request.getRequestDispatcher(Loguj);
+         else if(!dao.zaloguj(user.getLogin(),user.getHaslo())){
+             System.out.println("niezalogowany");
+             czyZalogowany=false;
+         view = request.getRequestDispatcher(INDEX);
+         }
+         }
+        
+        
          
-        }
-        
-        
-        
        // request.setAttribute("users", dao.getAllUsers());
         view.forward(request, response);
 

@@ -1,34 +1,22 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <link type="text/css" href="css/main/style.css" rel="stylesheet" />
-    </head>
-    
-    
-    <body>
+<html><body>
 <h1 align="center">LOGOWANIE</h1>
-
-<div align="center">
-<form class="formularzRejestracji" method="POST" action="UserKontroler">
-   
-  
-    <li>
-        <label for="login">Login :</label>
-            <input type="text" name="login">
-    </li>     
-            
-        <li>
-        <label for="haslo">Haslo :</label>
-            <input type="text" name="haslo">
-    </li>    
-    
-        
-        
+<form method="POST" action="UserKontroler">
+    <table align="center">
+        <tr>
+            <td>Podaj swoj login:</td>
+            <td><input type="text" name="login"></td>
+        </tr>
+        <tr>
+            <td>Podaj swoje haslo:</td>
+            <td><input type="password" name="haslo"></td>
+        </tr>
+    </table>
 <br><br>
-    <input type="SUBMIT" value="ZALOGUJ">
-
+<center>
+    <input type="SUBMIT" name="Logowanie" value="ZALOGUJ">
+</center>
 </form>
-</div>
 </body></html>

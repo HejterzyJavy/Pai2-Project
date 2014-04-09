@@ -5,11 +5,17 @@
         <servlet-name>UserKontroler</servlet-name>  
         <servlet-class>kontroler.UserKontroler</servlet-class>  
     </servlet>  
+    
+  
+    
      
     <servlet-mapping>  
         <servlet-name>UserKontroler</servlet-name>  
         <url-pattern>/UserKontroler</url-pattern>  
     </servlet-mapping> 
+    
+     
+    
     
     <session-config>
         <session-timeout>
